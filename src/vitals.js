@@ -30,11 +30,12 @@ export function sendToVercelAnalytics(metric) {
   });
   if (navigator.sendBeacon) {
     navigator.sendBeacon(vitalsUrl, blob);
-  } else
+  } else {
     fetch(vitalsUrl, {
       body: blob,
       method: 'POST',
       credentials: 'omit',
       keepalive: true,
     });
+  }
 }
