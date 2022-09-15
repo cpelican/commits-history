@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommitItem renders as expected 1`] = `
+<DocumentFragment>
+  <li
+    class="commit-item"
+  >
+    <h4>
+      commit message
+    </h4>
+    <div
+      class="additional-info-container"
+    >
+      <img
+        alt="avatar for some name"
+        class="additional-info-image"
+        src="www.avatar.com"
+      />
+      <div
+        class="additional-info-content"
+      >
+        <span
+          class="author-message"
+        >
+          some name
+        </span>
+        <span />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`CommitItem renders as expected with no message 1`] = `
+<h4>
+  No commit message
+</h4>
+`;
