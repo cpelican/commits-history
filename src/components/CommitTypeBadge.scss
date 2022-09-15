@@ -1,0 +1,57 @@
+
+/* :root {
+    --chore-color: darkgrey;
+    --feature-color: orange;
+    --build-color: green;
+    --ci-color: purple;
+    --style-color: violet;
+    --refactor-color: aqua;
+    --performance-color: chocolate;
+    --test-color: firebrick;
+} */
+
+@mixin badge-variant($base-color) {
+    color: rgba($base-color, 1);
+    background-color: rgba($base-color, .1);
+    border: 1px solid rgba($base-color, .5);
+}
+.commit-type-badge {
+    display: inline;
+    align-items: center;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bolder;
+
+    &.chore {
+        @include badge-variant(darkgrey);
+    }
+
+    &.feature {
+        @include badge-variant(orange);
+    }
+
+    &.build {
+        @include badge-variant(green);
+    }
+
+    &.ci {
+        @include badge-variant(purple);
+    }
+
+    &.style {
+        @include badge-variant(violet);
+    }
+
+    &.refactor {
+        @include badge-variant(aqua);
+    }
+
+    &.performance {
+        @include badge-variant(chocolate);
+    }
+
+    &.test {
+        @include badge-variant(firebrick);
+    }
+}

@@ -1,0 +1,31 @@
+:root {
+    --box-shadow-color: rgba(0, 0, 0, 0.556);
+}
+
+.commit-item {
+    width: 400px;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    list-style-type: none;
+    box-shadow: 0px 0px 20px 4px var(--box-shadow-color);
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: .2rem;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    .additional-info-container {
+        margin-top: .5rem;
+
+        .author-message {
+            &:after {
+                content: '\2022';
+                margin: .2rem;
+            }
+        }
+    }
+}
