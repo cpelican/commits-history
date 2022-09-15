@@ -1,0 +1,12 @@
+build
+dist
+public
+node_modules
+
+package.json
+.yarn.lock
+
+**/*.svg
+**/*.md
+**/*.json
+eslintrc.json

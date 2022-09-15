@@ -1,0 +1,25 @@
+{
+    "printWidth": 120,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "parser": "typescript",
+    "arrowParens": "always",
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": false,
+    "quoteProps": "consistent",
+    "overrides": [
+        {
+            "files": "**/*.scss",
+            "options": {
+                "parser": "scss"
+            }
+        },
+        {
+            "files": ["**/*.json", ".eslintrc.json"],
+            "options": {
+                "parser": "json"
+            }
+        }
+    ]
+}
