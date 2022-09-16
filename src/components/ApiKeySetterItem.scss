@@ -1,0 +1,50 @@
+.api-key-setter-item {
+    width: 20rem;
+    margin-top: 15rem;
+    .input-group {
+        display: flex;
+    }
+    input[type='text'],
+    button {
+        border-radius: 4px;
+        padding: 0.5rem 0.9rem;
+    }
+
+    label {
+        margin-bottom: 0.2rem;
+        font-size: small;
+        color: darkgrey;
+        font-weight: 400;
+    }
+
+    input[type='text'] {
+        border-color: lightgray;
+        border-style: solid;
+        border-width: 1px;
+        width: 100%;
+        margin-right: 0.3rem;
+        &:focus-visible,
+        &:focus {
+            outline: lightgray auto 1px;
+        }
+    }
+
+    button {
+        border-width: 0px;
+        background: lightgray;
+        color: gray;
+
+        &:disabled {
+            border: 1px solid lightgray;
+        }
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+        &:hover {
+            outline: lightgray auto 1px;
+        }
+        &:focus {
+            outline-offset: 0px !important;
+        }
+    }
+}
