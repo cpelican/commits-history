@@ -15,12 +15,12 @@ export interface APIItem {
     };
 }
 
-export type UseCommitsApiType = [APIItem[], number | null];
+export type UseCommitsApiType = [APIItem[] | null, number | null];
 
 export class Hooks {
     public static useCommitsApi = (): UseCommitsApiType => {
         const [errorStatus, setErrorStatus] = useState<number | null>(null),
-            [items, setItems] = useState<APIItem[]>([]);
+            [items, setItems] = useState<APIItem[] | null>([]);
 
         useEffect(() => {
             Fetcher.subscribe(setItems, setErrorStatus);

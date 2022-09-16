@@ -27,13 +27,10 @@ describe('App', () => {
             ],
             null,
         ],
-    ])(
-        'renders as expected whith useCommitApi returning api values %s, error %s',
-        (apiValue, error) => {
-            jest.spyOn(Hooks, 'useCommitsApi').mockReturnValue([apiValue, error]);
-            Settings.now = () => new Date(2022, 12, 25).valueOf();
-            const {asFragment} = render(<App />);
-            expect(asFragment()).toMatchSnapshot();
-        },
-    );
+    ])('renders as expected whith useCommitApi returning api values %s, error %s', (apiValue, error) => {
+        jest.spyOn(Hooks, 'useCommitsApi').mockReturnValue([apiValue, error]);
+        Settings.now = () => new Date(2022, 12, 25).valueOf();
+        const {asFragment} = render(<App />);
+        expect(asFragment()).toMatchSnapshot();
+    });
 });

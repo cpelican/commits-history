@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import {ApiKeySetterItem, API_STORAGE_KEY} from './components/ApiKeySetterItem';
 import {CommitItem} from './components/CommitItem';
 import {APIItem, Hooks} from './hooks';
 
@@ -29,9 +30,31 @@ function App() {
         return <ul className='commit-list-container'>{items?.map(renderCommitItem)}</ul>;
     }
 
+    function renderApiKeySetterItem() {
+        if (items?.length ?? 0 > 0) {
+            return null;
+        }
+        return <ApiKeySetterItem />;
+    }
+
+    function renderError() {
+        if (errorStatus == null) {
+            return;
+        }
+        if (sessionStorage.getItem(API_STORAGE_KEY) == null) {
+            return;
+        }
+        return (
+            <div className='error-container'>
+                <p className='error-message'>{`Error with status ${errorStatus}, please try again`}</p>
+            </div>
+        );
+    }
+
     return (
         <div className='commit-history-container'>
-            {errorStatus && <p>{`Error with status ${errorStatus}`}</p>}
+            {renderApiKeySetterItem()}
+            {renderError()}
             {renderCommits()}
         </div>
     );
