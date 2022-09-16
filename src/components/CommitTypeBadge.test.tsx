@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import {CommitTypeBadge} from './CommitTypeBadge';
-
+import {CommitTypeBadge, CommitTypeBadgeProps} from './CommitTypeBadge';
 
 const defaultProps: CommitTypeBadgeProps = {
     type: 'ci',

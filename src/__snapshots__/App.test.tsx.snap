@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders as expected whith useCommitApi returning api values [ [Object] ], isLoading false, error  1`] = `
+exports[`App renders as expected whith useCommitApi returning api values [ [Object] ], error null 1`] = `
 <DocumentFragment>
   <div
     class="commit-history-container"
@@ -41,53 +41,34 @@ exports[`App renders as expected whith useCommitApi returning api values [ [Obje
 </DocumentFragment>
 `;
 
-exports[`App renders as expected whith useCommitApi returning api values [], isLoading false, error  1`] = `
-<DocumentFragment>
-  <div
-    class="commit-history-container"
-  />
-</DocumentFragment>
-`;
-
-exports[`App renders as expected whith useCommitApi returning api values [], isLoading false, error End of the world error! 1`] = `
+exports[`App renders as expected whith useCommitApi returning api values [], error 403 1`] = `
 <DocumentFragment>
   <div
     class="commit-history-container"
   >
     <p>
-      End of the world error!
+      Error with status 403
     </p>
   </div>
 </DocumentFragment>
 `;
 
-exports[`App renders as expected whith useCommitApi returning api values [], isLoading false, error null 1`] = `
+exports[`App renders as expected whith useCommitApi returning api values [], error 404 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  >
+    <p>
+      Error with status 404
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App renders as expected whith useCommitApi returning api values [], error null 1`] = `
 <DocumentFragment>
   <div
     class="commit-history-container"
   />
-</DocumentFragment>
-`;
-
-exports[`App renders as expected whith useCommitApi returning api values [], isLoading true, error  1`] = `
-<DocumentFragment>
-  <div
-    class="commit-history-container"
-  >
-    <p />
-  </div>
-</DocumentFragment>
-`;
-
-exports[`App renders as expected whith useCommitApi returning api values [], isLoading true, error End of the world error! 1`] = `
-<DocumentFragment>
-  <div
-    class="commit-history-container"
-  >
-    <p />
-    <p>
-      End of the world error!
-    </p>
-  </div>
 </DocumentFragment>
 `;

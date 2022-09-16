@@ -1,19 +1,7 @@
-
-/* :root {
-    --chore-color: darkgrey;
-    --feature-color: orange;
-    --build-color: green;
-    --ci-color: purple;
-    --style-color: violet;
-    --refactor-color: aqua;
-    --performance-color: chocolate;
-    --test-color: firebrick;
-} */
-
 @mixin badge-variant($base-color) {
     color: rgba($base-color, 1);
-    background-color: rgba($base-color, .1);
-    border: 1px solid rgba($base-color, .5);
+    background-color: rgba($base-color, 0.1);
+    border: 1px solid rgba($base-color, 0.5);
 }
 .commit-type-badge {
     display: inline;

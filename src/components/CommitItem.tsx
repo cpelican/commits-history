@@ -36,7 +36,9 @@ export function getMessageBits(commitMessage: string): CommitBits {
 
 export const CommitItem: React.FC<CommitItemProps> = React.memo(({sha, message, date, author}) => {
     function getDateMessage() {
-        const dateMessage = date ? DateTime.fromISO(date).toRelative({unit: ['years', 'months', 'days', 'hours', 'minutes']}) : '-';
+        const dateMessage = date
+            ? DateTime.fromISO(date).toRelative({unit: ['years', 'months', 'days', 'hours', 'minutes']})
+            : '-';
         return <span>{dateMessage}</span>;
     }
 
@@ -45,13 +47,18 @@ export const CommitItem: React.FC<CommitItemProps> = React.memo(({sha, message, 
         return <span className='author-message'>{name}</span>;
     }
 
-    const content = <>{getAuthor()}{getDateMessage()}</>,
+    const content = (
+            <>
+                {getAuthor()}
+                {getDateMessage()}
+            </>
+        ),
         {prefix, commitMessage} = getMessageBits(message);
     return (
         <li key={sha} className='commit-item'>
             <h4>{commitMessage === '' ? 'No commit message' : commitMessage}</h4>
-            <CommitTypeBadge type={prefix}/>
-            <AdditionalInfo content={content} imageUrl={author.imageUrl} imageAlt={`avatar for ${author.name}`}/>
+            <CommitTypeBadge type={prefix} />
+            <AdditionalInfo content={content} imageUrl={author.imageUrl} imageAlt={`avatar for ${author.name}`} />
         </li>
     );
 });

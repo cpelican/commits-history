@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {fetchItems} from './fetchers';
+import {Fetcher} from './fetchers';
 
 export interface APIItem {
     sha: string;
@@ -15,33 +15,18 @@ export interface APIItem {
     };
 }
 
-export type UseCommitsApiType = [APIItem[], boolean, string];
+export type UseCommitsApiType = [APIItem[], number | null];
 
 export class Hooks {
     public static useCommitsApi = (): UseCommitsApiType => {
-        const [error, setError] = useState<string | null>(null),
-            [isLoading, setIsLoading] = useState<boolean>(false),
+        const [errorStatus, setErrorStatus] = useState<number | null>(null),
             [items, setItems] = useState<APIItem[]>([]);
 
         useEffect(() => {
-            async function fetchData() {
-                setIsLoading(true);
-                try {
-                    const apiItems = await fetchItems();
-                    setItems(apiItems);
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                } catch (e: any) {
-                    setError(e.message);
-                }
-            }
-
-            const hasSomeItems = items.length !== 0;
-            if (!hasSomeItems && !isLoading) {
-                fetchData();
-            }
+            Fetcher.subscribe(setItems, setErrorStatus);
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        return [items, isLoading, error];
+        return [items, errorStatus];
     };
 }

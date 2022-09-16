@@ -1,4 +1,7 @@
 .commit-history-container {
+    display: flex;
+    justify-content: center;
+
     .commit-list-container {
         padding-left: 0;
         display: flex;

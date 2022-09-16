@@ -1,4 +1,14 @@
-# Create React App
+## Difficulties during the test
+- [ ] I don't like the way I organized components especially the AdditionalInfo one, and also how the date logic is mixed with some other logic. Would have liked to separate it better.
+- [ ] for a while I tried to use env variables without success (then to realize it's not a suitable solution). I wonder why I can't see the env in the react app. It seems there might be outhere a bug.
+- [ ] I'm more used to a class based approach, so handling the useEffect thing is new to me
+- [ ] I'm used to jest, don't know yet very well the react-testing library. I find a bit strange the fact there is no shallow render.
+
+## TODOS
+- [ ] handle loading only the first time the api call is made
+- [ ] more tests, especially the whole polling thing
+
+## Create React App readme
 
 This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
 

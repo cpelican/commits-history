@@ -10,24 +10,18 @@ export const commitTypes: Record<string, string> = {
     style: 'style',
     refactor: 'refactor',
     perf: 'performance',
-    test: 'test'
+    test: 'test',
 };
 
 export interface CommitTypeBadgeProps {
     type?: keyof typeof commitTypes;
 }
 
-
 export const CommitTypeBadge: React.FC<CommitTypeBadgeProps> = React.memo(({type}) => {
     if (type == null) {
         return null;
     }
-    return (
-        <span className={clsx('commit-type-badge', type)}>
-            {type}
-        </span>
-    );
+    return <span className={clsx('commit-type-badge', type)}>{type}</span>;
 });
 
 CommitTypeBadge.displayName = 'CommitTypeBadge';
-
