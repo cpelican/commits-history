@@ -46,6 +46,7 @@ export class Fetcher {
         const responseData = await response.json();
         if (response.ok && responseData != null) {
             subscribeArgs.handleFetchState({errorStatus: null, items: responseData});
+            subscribeArgs.handleApiCallState('polling');
         }
         await Fetcher.waitAndSubscribe(subscribeArgs);
     }

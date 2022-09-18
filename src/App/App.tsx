@@ -40,17 +40,20 @@ export function App() {
     }
 
     function renderApiKeySetterItem() {
-        // todo: with adding a loading state,
-        // the api key setter won't appear when reloading the page while having a correct api kay
-        if (!['error', 'idle', 'input-change'].includes(apiCallState) || hasCommits) {
+        if (state.items != null) {
             return;
         }
+
+        if (apiCallState === 'loading') {
+            return;
+        }
+
         return <ApiKeySetterItem setAppState={setApiCallState} />;
     }
 
     function renderError() {
         if (apiCallState !== 'error') {
-            return null;
+            return;
         }
 
         return (
@@ -60,9 +63,17 @@ export function App() {
         );
     }
 
+    function renderLoading() {
+        if (apiCallState !== 'loading') {
+            return;
+        }
+        return <p className='loading-container'>Loading</p>;
+    }
+
     return (
         <div className='commit-history-container'>
             {renderApiKeySetterItem()}
+            {renderLoading()}
             {renderError()}
             {renderCommits()}
         </div>

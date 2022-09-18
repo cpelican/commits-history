@@ -12,7 +12,7 @@ export interface APIItem {
     };
 }
 
-export type ApiCallState = 'idle' | 'error' | 'input-change' | 'polling';
+export type ApiCallState = 'idle' | 'error' | 'input-change' | 'polling' | 'loading';
 
 export interface AppState {
     items: APIItem[] | null;
