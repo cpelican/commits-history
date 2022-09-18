@@ -24,7 +24,6 @@ export class Fetcher {
     // helped by https://javascript.info/long-polling
     public static async subscribe(subscribeArgs: SubscribeArgs) {
         Fetcher.isPendingFetchRequest = true;
-        // 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
         const secretKey = sessionStorage.getItem(API_STORAGE_KEY),
             response = await fetch(ViewConfig.url, {
             method: 'GET',
