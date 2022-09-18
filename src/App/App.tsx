@@ -28,12 +28,12 @@ export function App() {
     }
 
     function renderCommits() {
-        if (apiCallState === 'error') {
+        if (apiCallState !== 'polling') {
             return;
         }
 
         if(!hasCommits) {
-            return;
+            return <p>No commits so far</p>;
         }
 
         return <ul className='commit-list-container'>{state?.items?.map(renderCommitItem)}</ul>;

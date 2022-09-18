@@ -36,14 +36,6 @@ exports[`App renders as expected whith useCommitApi returning state { items: [],
 </DocumentFragment>
 `;
 
-exports[`App renders as expected whith useCommitApi returning state { items: [], errorStatus: null }, api state idle 1`] = `
-<DocumentFragment>
-  <div
-    class="commit-history-container"
-  />
-</DocumentFragment>
-`;
-
 exports[`App renders as expected whith useCommitApi returning state { items: [], errorStatus: null }, api state loading 1`] = `
 <DocumentFragment>
   <div
@@ -62,7 +54,11 @@ exports[`App renders as expected whith useCommitApi returning state { items: [],
 <DocumentFragment>
   <div
     class="commit-history-container"
-  />
+  >
+    <p>
+      No commits so far
+    </p>
+  </div>
 </DocumentFragment>
 `;
 
@@ -103,6 +99,37 @@ exports[`App renders as expected whith useCommitApi returning state { items: [Ar
         </div>
       </li>
     </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App renders as expected whith useCommitApi returning state { items: null, errorStatus: null }, api state idle 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  >
+    <div
+      class="api-key-setter-item"
+    >
+      <label
+        for="api-key-input"
+      >
+        Please enter the api key
+      </label>
+      <div
+        class="input-group"
+      >
+        <input
+          id="api-key-input"
+          type="text"
+        />
+        <button
+          disabled=""
+        >
+          Ok
+        </button>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

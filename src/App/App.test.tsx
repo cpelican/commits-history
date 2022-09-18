@@ -7,7 +7,7 @@ import {ApiCallState, AppState} from '../types';
 
 describe('App', () => {
     test.each<[AppState, ApiCallState]>([
-        [{items: [], errorStatus: null}, 'idle'],
+        [{items: null, errorStatus: null}, 'idle'],
         [{items: [], errorStatus: null}, 'loading'],
         [{items: [], errorStatus: 404}, 'error'],
         [{items: [], errorStatus: 403}, 'error'],
