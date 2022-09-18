@@ -1,12 +1,31 @@
-## Difficulties during the test
-- [ ] I don't like the way I organized components especially the AdditionalInfo one, and also how the date logic is mixed with some other logic. Would have liked to separate it better.
-- [ ] for a while I tried to use env variables without success (then to realize it's not a suitable solution). I wonder why I can't see the env in the react app. It seems there might be outhere a bug.
-- [ ] I'm more used to a class based approach, so handling the useEffect thing is new to me
-- [ ] I'm used to jest, don't know yet very well the react-testing library. I find a bit strange the fact there is no shallow render.
+I chose the Option A (entering the key in an input) because I estimated finding out how to deploy the app with a backend would have make me not to be able to give in time the test.
+
+I did not implement the countdown, but the polling should be working (only if the key is right). Once the user has entered the key, it should not poll if the api call has returned an error, and wait for the user to enter another key.
+
+For css I used scss preprocessor, mainly because it allows me to nest css, which I find more readable.
+
+Below are the todos and difficulties I could think of.
+
+## Doubts and difficulties during the test
+- [ ] The state flow seems to me too complicated and buggy.
+It would have been less complicated if I had implemented the second solution with a backend proxy for the key (couldn't because of lack of time).
+Or maybe it would have had more sense to divide it on 2 pages, one where the user enters the api key, the other one where we get the results. If the result is an error, then go back (couldn't because of lack of time).
+- [ ] Maybe the date logic should have been better separated from the rest.
+- [ ] Maybe the AdditionalInfo component could be better renamed.
+- [ ] I'm more used to a class based approach, so handling the various hooks is new to me.
+- [ ] I'm used to jest, don't know yet very well the react-testing library (but wanted to give it a try). Maybe the way I wrote tests is not optimal.
+- [ ] At first I didn't think of using octocat and did a fetch request on the api, maybe I should have.
 
 ## TODOS
-- [ ] handle loading only the first time the api call is made
-- [ ] more tests, especially the whole polling thing
+- [ ] check the 502 error is behaving as wanted and fix it if not.
+- [ ] Better handle loading or divide the app in 2 pages.
+- [ ] Remove the error when reloading after error.
+- [ ] handle empty state and differenciate it from the loading state
+- [ ] add more tests, especially the whole polling thing
+- [ ] better ui for input and so
+- [ ] better handle firefox and safari for input
+- [ ] add pagination
+
 
 ## Create React App readme
 
