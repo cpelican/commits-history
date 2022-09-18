@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
+import {ApiCallState} from '../../types';
 import './ApiKeySetterItem.scss';
 
 export const API_STORAGE_KEY = 'github-api-key';
 
-export const ApiKeySetterItem: React.FC = () => {
+interface ApiKeySetterItemProps {
+    setAppState: (state: ApiCallState) => void;
+}
+
+export const ApiKeySetterItem: React.FC<ApiKeySetterItemProps> = ({setAppState}) => {
     const [secretKey, setSecretKey] = useState<string | null>(null);
 
     function handleInputChange(e: React.FormEvent<HTMLInputElement>) {
+        setAppState('input-change');
         setSecretKey(e?.currentTarget?.value);
     }
 
@@ -14,6 +20,7 @@ export const ApiKeySetterItem: React.FC = () => {
         if (secretKey == null) {
             return;
         }
+        setAppState('polling');
         window.sessionStorage.setItem(API_STORAGE_KEY, secretKey);
     }
 

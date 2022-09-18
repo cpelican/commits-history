@@ -1,21 +1,10 @@
-import React from 'react';
-import {CommitBits, CommitItem, CommitItemProps, getMessageBits} from './CommitItem';
-import {render, screen} from '@testing-library/react';
 
-const defaultProps: CommitItemProps = {
-    sha: '1234',
-    date: 'one minute ago',
-    message: 'commit message',
-    author: {
-        imageUrl: 'www.avatar.com',
-        name: 'some name',
-    },
-};
+import {CommitBits, getMessageBits} from './helpers';
 
-describe('CommitItem', () => {
+describe('helpers', () => {
     test.each<[string, CommitBits]>([
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        // @ts-ignore: we test null although it is not accepted as a type
         [null, {commitMessage: ''}],
         ['', {commitMessage: ''}],
         ['test', {commitMessage: 'test', prefix: 'test'}],
@@ -35,15 +24,5 @@ describe('CommitItem', () => {
         ],
     ])('getMessageBits() with commit message %s renders %s', (commitMessage, expected) => {
         expect(getMessageBits(commitMessage)).toEqual(expected);
-    });
-
-    test('renders as expected', () => {
-        const {asFragment} = render(<CommitItem {...defaultProps} />);
-        expect(asFragment()).toMatchSnapshot();
-    });
-
-    test('renders as expected with no message', () => {
-        render(<CommitItem {...{...defaultProps, message: ''}} />);
-        expect(screen.getByRole('heading', {level: 4})).toMatchSnapshot();
     });
 });

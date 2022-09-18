@@ -2,8 +2,9 @@ import React from 'react';
 import {DateTime} from 'luxon';
 
 import './CommitItem.scss';
-import {AdditionalInfo} from './AdditionalInfo';
-import {CommitTypeBadge, commitTypes} from './CommitTypeBadge';
+import {AdditionalInfo} from '../AdditionalInfo';
+import {CommitTypeBadge} from '../CommitTypeBadge';
+import {getMessageBits} from '../helpers';
 
 export interface CommitItemProps {
     sha: string;
@@ -13,25 +14,6 @@ export interface CommitItemProps {
         name: string;
         imageUrl: string;
     };
-}
-
-export interface CommitBits {
-    commitMessage: string;
-    prefix?: keyof typeof commitTypes;
-}
-
-export function getMessageBits(commitMessage: string): CommitBits {
-    if (commitMessage == null) {
-        return {commitMessage: ''};
-    }
-    // eslint-disable-next-line no-unsafe-optional-chaining
-    const [commitTypePrefix, ...rest] = commitMessage?.trim?.()?.split(':'),
-        commitType = commitTypes?.[commitTypePrefix];
-    if (commitType == null) {
-        return {commitMessage};
-    }
-    const splittedMessage = rest?.join(':')?.trim();
-    return {prefix: commitType, commitMessage: splittedMessage === '' ? commitType : splittedMessage};
 }
 
 export const CommitItem: React.FC<CommitItemProps> = React.memo(({sha, message, date, author}) => {
@@ -58,7 +40,9 @@ export const CommitItem: React.FC<CommitItemProps> = React.memo(({sha, message, 
         <li key={sha} className='commit-item'>
             <h4>{commitMessage === '' ? 'No commit message' : commitMessage}</h4>
             <CommitTypeBadge type={prefix} />
-            <AdditionalInfo content={content} imageUrl={author.imageUrl} imageAlt={`avatar for ${author.name}`} />
+            <AdditionalInfo imageUrl={author.imageUrl} imageAlt={`avatar for ${author.name}`} >
+                {content}
+            </AdditionalInfo>
         </li>
     );
 });

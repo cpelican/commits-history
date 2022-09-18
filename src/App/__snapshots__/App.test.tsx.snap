@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders as expected whith useCommitApi returning state { items: [], errorStatus: 403 }, api state error 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  >
+    <div
+      class="api-key-setter-item"
+    >
+      <label
+        for="api-key-input"
+      >
+        Please enter the api key
+      </label>
+      <div
+        class="input-group"
+      >
+        <input
+          id="api-key-input"
+          type="text"
+        />
+        <button
+          disabled=""
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+    <div
+      class="error-container"
+    >
+      <p
+        class="error-message"
+      >
+        Error with status 403, please try again
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App renders as expected whith useCommitApi returning state { items: [], errorStatus: 404 }, api state error 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  >
+    <div
+      class="api-key-setter-item"
+    >
+      <label
+        for="api-key-input"
+      >
+        Please enter the api key
+      </label>
+      <div
+        class="input-group"
+      >
+        <input
+          id="api-key-input"
+          type="text"
+        />
+        <button
+          disabled=""
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+    <div
+      class="error-container"
+    >
+      <p
+        class="error-message"
+      >
+        Error with status 404, please try again
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App renders as expected whith useCommitApi returning state { items: [], errorStatus: null }, api state idle 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  >
+    <div
+      class="api-key-setter-item"
+    >
+      <label
+        for="api-key-input"
+      >
+        Please enter the api key
+      </label>
+      <div
+        class="input-group"
+      >
+        <input
+          id="api-key-input"
+          type="text"
+        />
+        <button
+          disabled=""
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App renders as expected whith useCommitApi returning state { items: [], errorStatus: null }, api state polling 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  />
+</DocumentFragment>
+`;
+
+exports[`App renders as expected whith useCommitApi returning state { items: [Array], errorStatus: null }, api state polling 1`] = `
+<DocumentFragment>
+  <div
+    class="commit-history-container"
+  >
+    <ul
+      class="commit-list-container"
+    >
+      <li
+        class="commit-item"
+      >
+        <h4>
+          commit message
+        </h4>
+        <div
+          class="additional-info-container"
+        >
+          <img
+            alt="avatar for some name"
+            class="additional-info-image"
+            src="www.avatar.com"
+          />
+          <div
+            class="additional-info-content"
+          >
+            <span
+              class="author-message"
+            >
+              some name
+            </span>
+            <span>
+              4 months ago
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
